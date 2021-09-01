@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gerenciamento_curso/providers/cursos.dart';
 import 'package:gerenciamento_curso/routes/app_routes.dart';
+import 'package:gerenciamento_curso/views/curso_details.dart';
 import 'package:gerenciamento_curso/views/curso_list.dart';
 import 'package:gerenciamento_curso/views/curso_form.dart';
 import 'package:provider/provider.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         routes: {
           AppRoutes.CURSO_LIST: (ctx) => CursoList(),
           AppRoutes.CURSO_FORM: (ctx) => CursoForm(),
+          AppRoutes.CURSO_DETAILS: (ctx) => CursoDetails(),
         },
       ),
     );

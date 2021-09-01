@@ -17,39 +17,15 @@ class CursoListItem extends StatelessWidget {
         title: Text(curso.name),
         subtitle: Text(curso.duracao.toString() + " horas de curso"),
         trailing: Container(
-          width: 100,
+          width: 50,
           child: Row(children: <Widget>[
             IconButton(
               onPressed: () {
                 Navigator.of(context)
-                    .pushNamed(AppRoutes.CURSO_FORM, arguments: curso);
+                    .pushNamed(AppRoutes.CURSO_DETAILS, arguments: curso);
               },
-              icon: Icon(Icons.edit),
+              icon: Icon(Icons.list),
             ),
-            IconButton(
-                onPressed: () {
-                  showDialog(
-                      context: context,
-                      builder: (ctx) => AlertDialog(
-                            title: Text('Excluir curso'),
-                            content: Text('Confirmar exclusão'),
-                            actions: <Widget>[
-                              TextButton(
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                  child: Text('Não')),
-                              ElevatedButton(
-                                  onPressed: () {
-                                    cursos.remove(curso);
-                                    Navigator.of(context).pop();
-                                  },
-                                  child: Text('Sim')),
-                            ],
-                          ));
-                },
-                icon: Icon(Icons.delete),
-                color: Colors.red)
           ]),
         ));
   }

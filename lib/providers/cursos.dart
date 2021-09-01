@@ -18,6 +18,12 @@ class Cursos with ChangeNotifier {
     return _items.values.elementAt(i);
   }
 
+  Curso byID(String id) {
+    var cursos = _items.values.where((element) => element.id == id);
+
+    return cursos.elementAt(0);
+  }
+
   void put(Curso curso) {
     if (curso.id.trim().isNotEmpty && _items.containsKey(curso.id)) {
       _items.update(curso.id, (_) => curso);

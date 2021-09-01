@@ -13,23 +13,20 @@ class CursoList extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Lista de Cursos'),
-        actions: <Widget>[
-          IconButton(
-            onPressed: () {
-              Navigator.of(context).pushNamed(AppRoutes.CURSO_FORM,
-                  arguments:
-                      Curso(id: '', name: '', descricao: '', duracao: 0));
-            },
-            icon: Icon(Icons.add),
-            color: Colors.green,
-          )
-        ],
       ),
       body: ListView.builder(
         itemCount: cursos.count,
         itemBuilder: (ctx, i) => CursoListItem(
           cursos.byIndex(i),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).pushNamed(AppRoutes.CURSO_FORM,
+              arguments: Curso(id: '', name: '', descricao: '', duracao: 0));
+        },
+        child: const Icon(Icons.add),
+        backgroundColor: Colors.green,
       ),
     );
   }
